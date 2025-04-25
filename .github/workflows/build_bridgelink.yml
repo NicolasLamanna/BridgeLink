@@ -36,10 +36,10 @@ jobs:
         run: ant -f mirth-build.xml -DdisableSigning=true
 
       - name: Package distribution
-        run: tar czf bridgelink.tar.gz -C server/ --transform 's|^setup|bridgelink/|'
+        run: tar czf server.tar.gz -C server
 
       - name: Create artifact
         uses: actions/upload-artifact@v4
         with:
           name: bridgelink-build
-          path: bridgelink.tar.gz
+          path: server.tar.gz
